@@ -5034,10 +5034,35 @@ body {
 const data = {
 	nodes : [ 
 		{ id : "Math" , group : 1 } ,
-		{ id : "Science" , group : 2 } ,
+		{ id : "Science" , group : 1 } ,
+		{ id : "Computer Science" , group : 1 } ,
+		{ id : "Natural Language Processing" , group : 1 } ,
+		{ id : "Stable Diffusion Image Generation" , group : 1 } ,
+		{ id : "Large Language Model" , group : 1 } ,
+		{ id : "Art" , group : 2 } ,
+		{ id : "Programming" , group : 1 } ,
+		{ id : "Biology" , group : 1 } ,
+		{ id : "Chemistry" , group : 1 } ,
+		{ id : "Physics" , group : 1 } ,
+		{ id : "Culture" , group : 2 } ,
+		{ id : "Language" , group : 2 } ,
+		{ id : "English" , group : 2 } ,
 	] ,
 	links : [
-		{ source : "Math" , target : "Science" , value : 1 } ,
+		{ source : "Science" , target : "Math" , value : 1 } ,
+		{ source : "Math" , target : "Computer Science" , value : 1 } ,
+		{ source : "Computer Science" , target : "Natural Language Processing" , value : 1 } ,
+		{ source : "Art" , target : "Stable Diffusion Image Generation" , value : 1 } ,
+		{ source : "Natural Language Processing" , target : "Stable Diffusion Image Generation" , value : 1 } ,
+		{ source : "Natural Language Processing" , target : "Large Language Model" , value : 1 } ,
+		{ source : "Computer Science" , target : "Programming" , value : 1 } ,
+		{ source : "Science" , target : "Biology" , value : 1 } ,
+		{ source : "Science" , target : "Chemistry" , value : 1 } ,
+		{ source : "Science" , target : "Physics" , value : 1 } ,
+		{ source : "Culture" , target : "Art" , value : 1 } ,
+		{ source : "Culture" , target : "Language" , value : 1 } ,
+		{ source : "Language" , target : "English" , value : 1 } ,
+
 	]
 }
 
@@ -5058,6 +5083,7 @@ const data = {
       .force("link", d3.forceLink(links).id(d => d.id))
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("collide", d3.forceCollide( 80 ) )
       .on("tick", ticked);
 
   // Create the SVG container.
@@ -5067,7 +5093,6 @@ const data = {
       .attr("viewBox", [0, 0, width, height])
       .attr("style", "max-width: 100%; height: auto;");
 
-  // Add a line for each link, and a circle for each node.
   const link = svg.append("g")
       .attr("stroke", "#999")
       .attr("stroke-opacity", 0.6)
@@ -5077,32 +5102,19 @@ const data = {
       .attr("stroke-width", d => Math.sqrt(d.value));
 
   const node = svg.append("g")
-      .attr("stroke", "#fff")
-      .attr("stroke-width", 1.5)
     .selectAll()
     .data(nodes)
-    .join( "circle" )
-      .attr("r", 5)
-      .attr("fill", d => color(d.group));
-
-  const lesson = svg.selectAll( ".lesson" )
-  	.data( nodes )
-	.enter()
-	.append( "text" );
-
-  lesson.style( "fill" , "#1c2d59" )
-  	.attr( "x" , 10 )
-	.attr( "y" , "0.4em" )
-	.text( d => d.id );
-	
-  node.append("title")
-      .text(d => d.name );
+    .join( "text" )
+	.text( d => d.id )
+	.attr( "fill" , d => color( d.group ) )
+	.attr( "text-anchor" , "middle" )
 
   // Add a drag behavior.
   node.call(d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
-        .on("end", dragended));
+	);
+  //      .on("end", dragended));
 
   // Set the position attributes of links and nodes each time the simulation ticks.
   function ticked() {
@@ -5113,12 +5125,9 @@ const data = {
         .attr("y2", d => d.target.y);
 
     node
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y);
+        .attr("x", d => d.x)
+        .attr("y", d => d.y);
 
-	lesson
-		.attr( "x" , d => d.x )
-		.attr( "y" , d => d.y );
   }
 
   // Reheat the simulation when drag starts, and fix the subject position.
