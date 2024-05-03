@@ -409,20 +409,20 @@ body {
   margin: 0px 0px 10px 0px;
 }
 
-/* module */
-.module-3eb617bd37d3 {
+/* concept */
+.concept-3eb617bd37d3 {
   width: 216px;
   height: 17.67px;
   flex-shrink: 0;
 }
-.module-3eb617bd37d3 .root-0 {
+.concept-3eb617bd37d3 .root-0 {
   
   
   display: flex;
   white-space: break-spaces;
   align-items: flex-start;
 }
-.module-3eb617bd37d3 .root-0-paragraph-set-0 {
+.concept-3eb617bd37d3 .root-0-paragraph-set-0 {
   display: inline-flex;
   flex-direction: column;
   justify-content: inherit;
@@ -430,13 +430,13 @@ body {
   margin-right: 1px;
   vertical-align: top;
 }
-.module-3eb617bd37d3 .root-0-paragraph-set-0-paragraph-0 {
+.concept-3eb617bd37d3 .root-0-paragraph-set-0-paragraph-0 {
   font-size: 0;
   line-height: 1.2;
   margin: 0;
   text-align: left;
 }
-.module-3eb617bd37d3 .root-0-paragraph-set-0-paragraph-0-text-0 {
+.concept-3eb617bd37d3 .root-0-paragraph-set-0-paragraph-0-text-0 {
   color: rgba(255, 255, 255, 0.95);
   text-transform: none;
   
@@ -5037,7 +5037,7 @@ const data = {
 		{ id : "Science" , group : 1 } ,
 		{ id : "Computer Science" , group : 1 } ,
 		{ id : "Natural Language Processing" , group : 1 } ,
-		{ id : "Stable Diffusion Image Generation" , group : 1 } ,
+		{ id : "Image Generation" , group : 1 } ,
 		{ id : "Large Language Model" , group : 1 } ,
 		{ id : "Art" , group : 2 } ,
 		{ id : "Programming" , group : 1 } ,
@@ -5052,8 +5052,8 @@ const data = {
 		{ source : "Science" , target : "Math" , value : 1 } ,
 		{ source : "Math" , target : "Computer Science" , value : 1 } ,
 		{ source : "Computer Science" , target : "Natural Language Processing" , value : 1 } ,
-		{ source : "Art" , target : "Stable Diffusion Image Generation" , value : 1 } ,
-		{ source : "Natural Language Processing" , target : "Stable Diffusion Image Generation" , value : 1 } ,
+		{ source : "Art" , target : "Image Generation" , value : 1 } ,
+		{ source : "Natural Language Processing" , target : "Image Generation" , value : 1 } ,
 		{ source : "Natural Language Processing" , target : "Large Language Model" , value : 1 } ,
 		{ source : "Computer Science" , target : "Programming" , value : 1 } ,
 		{ source : "Science" , target : "Biology" , value : 1 } ,
@@ -5068,10 +5068,10 @@ const data = {
 
   // Specify the dimensions of the chart.
   const width = 928;
-  const height = 600;
+  const height = 928;
 
   // Specify the color scale.
-  const color = d3.scaleOrdinal(d3.schemeCategory10);
+  const color = [ "#1c2d59" , "#8b575c" , "#d4e4bc" , "#96acb7" , "#f4989c" ]
 
   // The force simulation mutates links and nodes, so create a copy
   // so that re-evaluating this cell produces the same result.
@@ -5106,7 +5106,9 @@ const data = {
     .data(nodes)
     .join( "text" )
 	.text( d => d.id )
-	.attr( "fill" , d => color( d.group ) )
+	.style( "font-size" , "1em" )
+	.style( "font-family" , "sourcesanspro" )
+	.attr( "fill" , d => color[ ( d.group - 1 ) % color.length ] )
 	.attr( "text-anchor" , "middle" )
 
   // Add a drag behavior.
@@ -5189,12 +5191,12 @@ const data = {
         <!-- rect: Rectangle -->
         <div class="shape rect rectangle-3eb617bd37d4">
         </div>
-        <!-- text: module -->
-        <div class="shape text module-3eb617bd37d3">
+        <!-- text: concept -->
+        <div class="shape text concept-3eb617bd37d3">
           <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bd37d3" data-x="3959.9999999999964" data-y="1645.0453199041285">
             <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
               <div class="paragraph-set root-0-paragraph-set-0">
-                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">module name</span></p>
+                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">concept</span></p>
               </div>
             </div>
           </div>
