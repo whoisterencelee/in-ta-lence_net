@@ -4864,29 +4864,31 @@ body {
   </div>
 
 	<script>
-	scrollContainer = $( "character" )
-	const scrollDuration = 28;
-	let currentX = 0;
-	let scrollStep = 1;
-	let timer = 0;
+	function carousel(){
+		const scrollContainer = $( "character" )
+		const scrollDuration = 28;
+		let currentX = 0;
+		let scrollStep = 1;
+		let timer = 0;
 
-	function scrollHorizontally( frametime ) {
-		let totalWidth = scrollContainer.scrollWidth - scrollContainer.offsetWidth;
-		if( frametime > timer ){
-			if( currentX > totalWidth || currentX < 0 ) scrollStep = -1 * scrollStep
-			currentX += scrollStep
-			scrollContainer.scrollTo(currentX, 0);
-			timer = frametime + scrollDuration
+		function scrollHorizontally( frametime ) {
+			let totalWidth = scrollContainer.scrollWidth - scrollContainer.offsetWidth;
+			if( frametime > timer ){
+				if( currentX > totalWidth || currentX < 0 ) scrollStep = -1 * scrollStep
+				currentX += scrollStep
+				scrollContainer.scrollTo(currentX, 0);
+				timer = frametime + scrollDuration
+			}
+			requestAnimationFrame(() => {
+				scrolling = requestAnimationFrame(scrollHorizontally);
+			});
 		}
-		requestAnimationFrame(() => {
-			scrolling = requestAnimationFrame(scrollHorizontally);
-		});
+
+		scrollHorizontally(); // Start the slow horizontal scrolling
+		scrollContainer.addEventListener( "mousedown" , ()=> cancelAnimationFrame( scrolling ) )
+		scrollContainer.addEventListener( "touch" , ()=> cancelAnimationFrame( scrolling ) )
 	}
-
-	scrollHorizontally(); // Start the slow horizontal scrolling
-	scrollContainer.addEventListener( "mousedown" , ()=> cancelAnimationFrame(scrolling ))
-	
-
+	carousel()
 	</script>
   <!-- frame: Title -->
   <div class="frame title-3eb617bda487">
