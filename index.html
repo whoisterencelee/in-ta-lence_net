@@ -193,20 +193,20 @@ body {
   margin: 0px 0px 10px 0px;
 }
 
-/* compensate */
-.compensate-3eb617bd37cb {
+/* motivation */
+.motivation-3eb617bd37cb {
   width: 216px;
   height: 17.67px;
   flex-shrink: 0;
 }
-.compensate-3eb617bd37cb .root-0 {
+.motivation-3eb617bd37cb .root-0 {
   
   
   display: flex;
   white-space: break-spaces;
   align-items: flex-start;
 }
-.compensate-3eb617bd37cb .root-0-paragraph-set-0 {
+.motivation-3eb617bd37cb .root-0-paragraph-set-0 {
   display: inline-flex;
   flex-direction: column;
   justify-content: inherit;
@@ -214,13 +214,13 @@ body {
   margin-right: 1px;
   vertical-align: top;
 }
-.compensate-3eb617bd37cb .root-0-paragraph-set-0-paragraph-0 {
+.motivation-3eb617bd37cb .root-0-paragraph-set-0-paragraph-0 {
   font-size: 0;
   line-height: 1.2;
   margin: 0;
   text-align: left;
 }
-.compensate-3eb617bd37cb .root-0-paragraph-set-0-paragraph-0-text-0 {
+.motivation-3eb617bd37cb .root-0-paragraph-set-0-paragraph-0-text-0 {
   color: rgba(255, 255, 255, 0.95);
   text-transform: none;
   
@@ -3391,17 +3391,18 @@ body {
 .character-3eb96c8fe06b {
   position: relative;
   width: 100%;
-  height: auto;
-  border-radius: 0px;
-  overflow: hidden;
+  #height: auto;
+  overflow-x: auto;
   display: flex;
-  align-items: start;
-  align-content: stretch;
-  justify-content: space-evenly;
+  #align-items: start;
+  #align-content: stretch;
+  #justify-content: space-evenly;
   gap: 1em;
+  padding: 1em;
   flex-direction: row;
-  flex-wrap: wrap;
-  min-height: 168px;
+  flex-wrap: nowrap;
+  min-height: 190px;
+  scrollbar-width: thin;
 }
 
 /* value */
@@ -4702,6 +4703,7 @@ body {
   display: none;
 }
     </style>
+    <script>$=(i=>document.getElementById(i)||{})</script>
   </head>
   <body>
   <!-- frame: ipad - code -->
@@ -4799,7 +4801,7 @@ body {
   <!-- frame: why -->
   <div class="frame why-3eb617bda489">
     <!-- frame: Character -->
-    <div class="frame character-3eb96c8fe06b">
+    <div id=character class="frame character-3eb96c8fe06b">
       <!-- frame: hierarchy -->
       <div class="frame hierarchy-3eb96c9033e3">
 	<img style="clip-path:circle();max-width:100%;" src="assets/girlreadingbook.png"></img>
@@ -4860,9 +4862,35 @@ body {
       </div>
     </div>
   </div>
+
+	<script>
+	scrollContainer = $( "character" )
+	const scrollDuration = 28;
+	let currentX = 0;
+	let scrollStep = 1;
+	let timer = 0;
+
+	function scrollHorizontally( frametime ) {
+		let totalWidth = scrollContainer.scrollWidth - scrollContainer.offsetWidth;
+		if( frametime > timer ){
+			if( currentX > totalWidth || currentX < 0 ) scrollStep = -1 * scrollStep
+			currentX += scrollStep
+			scrollContainer.scrollTo(currentX, 0);
+			timer = frametime + scrollDuration
+		}
+		requestAnimationFrame(() => {
+			scrolling = requestAnimationFrame(scrollHorizontally);
+		});
+	}
+
+	scrollHorizontally(); // Start the slow horizontal scrolling
+	scrollContainer.addEventListener( "mousedown" , ()=> cancelAnimationFrame(scrolling ))
+	
+
+	</script>
   <!-- frame: Title -->
   <div class="frame title-3eb617bda487">
-    <!-- text: why  -->
+    <!-- text: Knowledge Explore  -->
     <div class="shape text why-3eb617bda488">
       <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda488" data-x="3685" data-y="981.378653237463">
         <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
@@ -5017,7 +5045,7 @@ const data = {
       <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bd37dd" data-x="3695" data-y="1577.378653237463">
         <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
           <div class="paragraph-set root-0-paragraph-set-0">
-            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(249, 237, 218, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(249, 237, 218, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#f9edda&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:25px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">Advance Knowledge</span></p>
+            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(249, 237, 218, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(249, 237, 218, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#f9edda&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:25px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">Advancing Knowledge</span></p>
           </div>
         </div>
       </div>
@@ -5058,7 +5086,7 @@ const data = {
           <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bd37d1" data-x="3959.9999999999964" data-y="1673.7119865707946">
             <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
               <div class="paragraph-set root-0-paragraph-set-0">
-                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">short description</span></p>
+                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">description</span></p>
               </div>
             </div>
           </div>
@@ -5071,7 +5099,7 @@ const data = {
           <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bd37cf" data-x="3959.9999999999964" data-y="1702.3786532374597">
             <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
               <div class="paragraph-set root-0-paragraph-set-0">
-                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">prerequist</span></p>
+                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">prerequiste</span></p>
               </div>
             </div>
           </div>
@@ -5092,12 +5120,12 @@ const data = {
         <!-- rect: Rectangle -->
         <div class="shape rect rectangle-3eb617bd37cc">
         </div>
-        <!-- text: compensate -->
-        <div class="shape text compensate-3eb617bd37cb">
+        <!-- text: motivation -->
+        <div class="shape text motivation-3eb617bd37cb">
           <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bd37cb" data-x="3959.9999999999964" data-y="1759.7119865707946">
             <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
               <div class="paragraph-set root-0-paragraph-set-0">
-                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">expected compensation</span></p>
+                <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(255, 255, 255, 0.95);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(255, 255, 255, 0.95);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#ffffff&quot;,&quot;~:fill-opacity&quot;,0.95]];letter-spacing:0px;font-size:14px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">motivation</span></p>
               </div>
             </div>
           </div>
