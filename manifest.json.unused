@@ -1,0 +1,1 @@
+// Do not add manifest in the root directory if we want to have different apps on same domain under subpaths, as manifest applies to all subpaths
