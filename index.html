@@ -4971,7 +4971,8 @@ ss = func
 		}
 
 		scrollHorizontally(); // Start the slow horizontal scrolling
-		scrollContainer.addEventListener( "click" , ()=> cancelAnimationFrame( scrolling ) )
+		scrollContainer.addEventListener( "mousedown" , ()=> cancelAnimationFrame( scrolling ) )
+		scrollContainer.addEventListener( "touchstart" , ()=> cancelAnimationFrame( scrolling ) )
 	}
 	carousel()
 	</script>
