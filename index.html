@@ -4737,7 +4737,7 @@ if('serviceWorker'in navigator){navigator.serviceWorker.register('./service_work
 var dbschemas = {
         inbox : { version : 1 , keyPath : "n" , autoIncrement : true , indices : [ 'time' ] }
 }
-	dbschemas[ document.location.pathname ] = { version : 1 , keyPath : "n" }
+	dbschemas[ document.location.pathname ] = { version : 1 , keyPath : "n" , indices : [ 'n' ] }
 var db = {}
 function openDb( dbname , func ) {
         console.log("openDb ...")
@@ -4971,8 +4971,7 @@ ss = func
 		}
 
 		scrollHorizontally(); // Start the slow horizontal scrolling
-		scrollContainer.addEventListener( "mousedown" , ()=> cancelAnimationFrame( scrolling ) )
-		scrollContainer.addEventListener( "touch" , ()=> cancelAnimationFrame( scrolling ) )
+		scrollContainer.addEventListener( "click" , ()=> cancelAnimationFrame( scrolling ) )
 	}
 	carousel()
 	</script>
