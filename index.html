@@ -4722,21 +4722,18 @@ body {
   <div class="frame header-3eb617bda4ac">
 	  <img style="height:4vh;" src="./assets/intalence_logo_240106_original.sideway.web.svg"></img>
 
-	  <form id="subscribe" name="subscribe" 
-			       style="width:auto;margin:0;padding:0;"
-			       method="POST" action="https://functional.limited/subscribe">
-		  <input class="hide" name="subscription" id="subscription"></input>
-		  <input id="subscribe-submit" type="submit" disabled="disabled" class="blink"
-			  style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;opacity:0;cursor:pointer;" 
-			  value="sign up"></input>
-	  </form>
-	  <form id="unsubscribe" name="unsubscribe" 
-			       style="width:auto;margin:0;padding:0;"
-			       method="POST" action="https://functional.limited/unsubscribe">
-		  <input class="hide" name="unsubscription" id="unsubscription"></input>
+	  <div>
+		  <form id="subscribe" name="subscribe" 
+				       style="width:auto;margin:0;padding:0;display:none;"
+				       method="POST" action="https://functional.limited/subscribe">
+			  <input class="hide" name="subscription" id="subscription"></input>
+			  <input id="subscribe-submit" type="submit" disabled="disabled" class="blink"
+				  style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;opacity:0;cursor:pointer;" 
+				  value="sign up"></input>
+		  </form>
+	  </div>
 
-
-<script> // subscribe code 240510
+<script> // subscribe 240510
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./service_worker.js').then(
     function () {
@@ -4751,49 +4748,54 @@ if ('serviceWorker' in navigator) {
         }
         return outputArray
       }
-      function getpush() {
-        navigator.serviceWorker.ready.then(
-          function (reg) {
-            return reg.pushManager.getSubscription().then(
-              async function (sub) {
-                const response = await fetch('/vapid.txt', {
-                  headers: {
-                    'Content-Type': 'text/plain'
-                  }
-                });
-                const vapidPublicKey = await response.text();
-                const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
-                if (sub) {
-                  if (
-                    sub.options &&
-                    sub.options.applicationServerKey &&
-                    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
-                  ) {
-                    sub.unsubscribe()
-		  } else {
-			
-			return sub
+
+	navigator.serviceWorker.ready.then(
+	  function (reg) {
+	    return reg.pushManager.getSubscription().then(
+	      async function (sub) {
+		const response = await fetch('/vapid.txt', {
+		  headers: {
+		    'Content-Type': 'text/plain'
 		  }
-                }
-                return reg.pushManager.subscribe({
-                  userVisibleOnly: true,
-                  applicationServerKey: convertedVapidKey
-                })
-              }
-            )
-          }
-        ).then(
-          function (sub) {
-            $('subscription').value = JSON.stringify(sub);
-            console.log($('subscription').value);
-            $('user').disabled = '';
-            $('subscribe').submit()
-          },
-          function (error) {
-            alert('push notification setup error : ' + error.toString())
-          }
-        )
-      }
+		});
+		const vapidPublicKey = await response.text();
+		const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
+		if (sub) {  // existing
+		  if (
+		    sub.options &&
+		    sub.options.applicationServerKey &&
+		    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
+		  ) {  // resubscribe
+			  sub.unsubscribe()
+			  return reg.pushManager.subscribe({
+				  userVisibleOnly: true,
+				  applicationServerKey: convertedVapidKey
+			  })
+		  }
+
+		  return sub
+		}
+
+		// open subscribe
+  	        $('user').disabled = ''
+	        $('subscribe').style.display = ''
+	        $('subscribe-submit').disabled = ''
+	        $('subscribe-submit').style.opacity = '1.0'
+	      }
+	    )
+	  }
+	).then(
+	  function (sub) {
+	    $('subscription').value = JSON.stringify(sub);
+	    console.log($('subscription').value);
+	    $('user').disabled = '';
+	    //$('subscribe').submit()
+	  },
+	  function (error) {
+	    alert('push notification setup error : ' + error.toString())
+	  }
+	)
+
       $('subscribe').onsubmit = () => {
         console.log('let\'s subscribe');
         $('user').disabled = 'disabled';
@@ -4806,14 +4808,11 @@ if ('serviceWorker' in navigator) {
             if (p !== 'granted') alert(
               'Notification is required for this page, try a different browser'
             );
-             else getpush()
+             else $('subscribe').submit()
           }
         );
-         else if (Notification.permission === 'granted') getpush()
+         else if (Notification.permission === 'granted') $('subscribe').submit()
       };
-      $('user').disabled = '';
-      $('subscribe-submit').disabled = '';
-      $('subscribe-submit').style.opacity = '1.0'
     }
   ).catch(
     function (err) {
