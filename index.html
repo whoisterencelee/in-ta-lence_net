@@ -4891,10 +4891,12 @@ if ('serviceWorker' in navigator) {
   	        $('user').disabled = ''
 	        $('subscribe-submit').disabled = ''
 
+			      /*
 	        return reg.pushManager.subscribe({
 		      userVisibleOnly: true,
 		      applicationServerKey: convertedVapidKey
 		})
+       */
 	      }
 	    )
 	  }
@@ -4923,10 +4925,10 @@ if ('serviceWorker' in navigator) {
             if (p !== 'granted') alert(
               'Notification is required for this page, try a different browser'
             );
-             else $('subscribe').submit()
+             else getPush()
           }
         );
-         else if (Notification.permission === 'granted') $('subscribe').submit()
+         else if (Notification.permission === 'granted') getPush()
       };
     }
   ).catch(
