@@ -4085,14 +4085,8 @@ body {
 
 /* for everyone */
 .for-everyo-3eb617bda4aa {
-  width: 300px;
-  height: 34px;
-  box-shadow: ;
-  flex-shrink: 0;
 }
 .for-everyo-3eb617bda4aa .root-0 {
-  
-  
   display: flex;
   white-space: break-spaces;
   align-items: flex-start;
@@ -4722,110 +4716,9 @@ body {
   <div class="frame header-3eb617bda4ac">
 	  <img style="height:4vh;" src="./assets/intalence_logo_240106_original.sideway.web.svg"></img>
 
-	  <div>
-		  <form id="subscribe" name="subscribe" 
-				       style="width:auto;margin:0;padding:0;display:none;"
-				       method="POST" action="https://functional.limited/subscribe">
-			  <input class="hide" name="subscription" id="subscription"></input>
-			  <input id="subscribe-submit" type="submit" disabled="disabled" class="blink"
-				  style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;opacity:0;cursor:pointer;" 
-				  value="sign up"></input>
-		  </form>
+	  <!-- messages -->
+	  <div id=messages style=color:#dec6a2;font-size:small;>
 	  </div>
-
-<script> // subscribe 240510
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service_worker.js').then(
-    function () {
-      console.log('Successfully registered service worker');
-      function urlBase64ToUint8Array(base64String) {
-        var padding = '='.repeat((4 - base64String.length % 4) % 4);
-        var base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/').replace(/\n/g, '').replace(/\r/g, '');
-        var rawData = window.atob(base64);
-        var outputArray = new Uint8Array(rawData.length);
-        for (var i = 0; i < rawData.length; ++i) {
-          outputArray[i] = rawData.charCodeAt(i)
-        }
-        return outputArray
-      }
-
-	navigator.serviceWorker.ready.then(
-	  function (reg) {
-	    return reg.pushManager.getSubscription().then(
-	      async function (sub) {
-		const response = await fetch('/vapid.txt', {
-		  headers: {
-		    'Content-Type': 'text/plain'
-		  }
-		});
-		const vapidPublicKey = await response.text();
-		const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
-		if (sub) {  // existing
-		  if (
-		    sub.options &&
-		    sub.options.applicationServerKey &&
-		    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
-		  ) {  // resubscribe
-			  sub.unsubscribe()
-			  return reg.pushManager.subscribe({
-				  userVisibleOnly: true,
-				  applicationServerKey: convertedVapidKey
-			  })
-		  }
-
-		  return sub
-		}
-
-		// open subscribe
-  	        $('user').disabled = ''
-	        $('subscribe').style.display = ''
-	        $('subscribe-submit').disabled = ''
-	        $('subscribe-submit').style.opacity = '1.0'
-	      }
-	    )
-	  }
-	).then(
-	  function (sub) {
-	    $('subscription').value = JSON.stringify(sub);
-	    console.log($('subscription').value);
-	    $('user').disabled = '';
-	    //$('subscribe').submit()
-	  },
-	  function (error) {
-	    alert('push notification setup error : ' + error.toString())
-	  }
-	)
-
-      $('subscribe').onsubmit = () => {
-        console.log('let\'s subscribe');
-        $('user').disabled = 'disabled';
-        event.preventDefault();
-        if (!('Notification' in window)) alert(
-          'Notification is required for this page, try a different browser'
-        );
-         else if (Notification.permission !== 'granted') Notification.requestPermission(
-          p => {
-            if (p !== 'granted') alert(
-              'Notification is required for this page, try a different browser'
-            );
-             else $('subscribe').submit()
-          }
-        );
-         else if (Notification.permission === 'granted') $('subscribe').submit()
-      };
-    }
-  ).catch(
-    function (err) {
-      alert('Error whilst registering service worker ' + err)
-    }
-  )
-} else alert(
-  'Service worker is required for this page, try a different browser'
-);
-if (u.get('subscribed')) {
-  // store( document.location.pathname , null , u.get( 'subscribed' ) )
-}
-</script>
 
 <script>// https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB
 var dbschemas = {
@@ -4933,37 +4826,123 @@ ss = func
         </div>
       </div>
     </div>
-    <!-- text: for everyone -->
-    <div class="shape text for-everyo-3eb617bda4aa">
-      <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda4aa" data-x="3919" data-y="572.8786532374631">
-        <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
-          <div class="paragraph-set root-0-paragraph-set-0">
-            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(222, 198, 162, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(222, 198, 162, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#dec6a2&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:24px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">for everyone</span></p>
-          </div>
-        </div>
-      </div>
+
+    <div style=display:flex;min-width:300px;gap:1em;>
+	    <!-- text: for everyone -->
+	    <div class="shape text for-everyo-3eb617bda4aa">
+	      <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda4aa" data-x="3919" data-y="572.8786532374631">
+		<div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
+		  <div class="paragraph-set root-0-paragraph-set-0">
+		    <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(222, 198, 162, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(222, 198, 162, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#dec6a2&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:24px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">for everyone</span></p>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+    
+	    <form id="subscribe" name="subscribe" 
+				 style="width:auto;margin:0;padding:0;display:none;"
+				 method="POST" action="https://functional.limited/subscribe">
+		    <input class="hide" name="subscription" id="subscription"></input>
+		    <input id="subscribe-submit" type="submit" disabled="disabled"
+			   style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;" 
+			   value="sign up"></input>
+	    </form>
+
+<script> // subscribe 240510
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service_worker.js').then(
+    function () {
+      console.log('Successfully registered service worker');
+      function urlBase64ToUint8Array(base64String) {
+        var padding = '='.repeat((4 - base64String.length % 4) % 4);
+        var base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/').replace(/\n/g, '').replace(/\r/g, '');
+        var rawData = window.atob(base64);
+        var outputArray = new Uint8Array(rawData.length);
+        for (var i = 0; i < rawData.length; ++i) {
+          outputArray[i] = rawData.charCodeAt(i)
+        }
+        return outputArray
+      }
+
+	navigator.serviceWorker.ready.then(
+	  function (reg) {
+	    return reg.pushManager.getSubscription().then(
+	      async function (sub) {
+		const response = await fetch('/vapid.txt', {
+		  headers: {
+		    'Content-Type': 'text/plain'
+		  }
+		});
+		const vapidPublicKey = await response.text();
+		const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
+		if (sub) {  // existing
+		  if (
+		    sub.options &&
+		    sub.options.applicationServerKey &&
+		    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
+		  ) {  // resubscribe
+			  sub.unsubscribe()
+			  return reg.pushManager.subscribe({
+				  userVisibleOnly: true,
+				  applicationServerKey: convertedVapidKey
+			  })
+		  }
+
+		  return sub
+		}
+
+		// open subscribe
+	        $('subscribe').style.display = ''
+  	        $('user').disabled = ''
+	        $('subscribe-submit').disabled = ''
+	      }
+	    )
+	  }
+	).then(
+	  function (sub) {
+		if(sub){
+		    $('subscription').value = JSON.stringify(sub);
+		    $('user').disabled = '';
+		}
+	  },
+	  function (error) {
+	    alert('push notification setup error : ' + error.toString())
+	  }
+	)
+
+      $('subscribe').onsubmit = () => {
+        console.log('let\'s subscribe');
+        $('user').disabled = 'disabled';
+        event.preventDefault();
+        if (!('Notification' in window)) alert(
+          'Notification is required for this page, try a different browser'
+        );
+         else if (Notification.permission !== 'granted') Notification.requestPermission(
+          p => {
+            if (p !== 'granted') alert(
+              'Notification is required for this page, try a different browser'
+            );
+             else $('subscribe').submit()
+          }
+        );
+         else if (Notification.permission === 'granted') $('subscribe').submit()
+      };
+    }
+  ).catch(
+    function (err) {
+      alert('Error whilst registering service worker ' + err)
+    }
+  )
+} else alert(
+  'Service worker is required for this page, try a different browser'
+);
+if (u.get('subscribed')) {
+	$('messages').textContent = "Thank you for signing up"
+}
+</script>
+
     </div>
-    <!-- frame: Board -->
-    <div class="frame board-3ec248f18058">
-      <!-- rect: bashir_teaching -->
-      <div class="shape rect bashirtea-3eb617bda4a9">
-        <svg width="768" xmlns="http://www.w3.org/2000/svg" height="891" id="screenshot-6aea17ed-5b8f-80f4-8004-3eb617bda4a9" viewBox="3685 -166.621 768 891" style="-webkit-print-color-adjust::exact" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" version="1.1">
-          <g id="shape-6aea17ed-5b8f-80f4-8004-3eb617bda4a9">
-            <defs>
-              <pattern patternUnits="userSpaceOnUse" x="3685" y="-166.62134676253697" width="768" height="891" id="fill-0-render-30911">
-                <g>
-                  <image id="fill-image-render-30911-1" href="https://design.penpot.app/assets/by-file-media-id/df60c394-e535-80b3-8004-3ead6313e33f" preserveAspectRatio="xMidYMid slice" width="768" height="891" opacity="0.5"></image>
-                  <rect width="768" height="891" style="fill:#1c2d59;fill-opacity:0.6"></rect>
-                </g>
-              </pattern>
-            </defs>
-            <g class="fills" id="fills-6aea17ed-5b8f-80f4-8004-3eb617bda4a9">
-              <rect rx="0" ry="0" x="3685" y="-166.62134676253697" transform="matrix(1.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000)" width="768" height="891" fill="url(#fill-0-render-30911)"></rect>
-            </g>
-          </g>
-        </svg>
-      </div>
-    </div>
+
   </div>
   <!-- frame: Title -->
   <div class="frame title-3eba34787e04">
@@ -5077,7 +5056,7 @@ ss = func
       <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda488" data-x="3685" data-y="981.378653237463">
         <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
           <div class="paragraph-set root-0-paragraph-set-0">
-            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(28, 45, 89, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(28, 45, 89, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#1c2d59&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:24px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">Knowledge Explore</span></p>
+            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(28, 45, 89, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(28, 45, 89, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#1c2d59&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:24px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">Explore Knowledge</span></p>
           </div>
         </div>
       </div>
