@@ -4882,12 +4882,7 @@ if ('serviceWorker' in navigator) {
 		    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
 		  ) {  // resubscribe
 			  sub.unsubscribe()
-			  return reg.pushManager.subscribe({
-				  userVisibleOnly: true,
-				  applicationServerKey: convertedVapidKey
-			  })
 		  }
-
 		  return sub
 		}
 
@@ -4895,6 +4890,11 @@ if ('serviceWorker' in navigator) {
 	        $('subscribe').style.display = ''
   	        $('user').disabled = ''
 	        $('subscribe-submit').disabled = ''
+
+	        return reg.pushManager.subscribe({
+		      userVisibleOnly: true,
+		      applicationServerKey: convertedVapidKey
+		})
 	      }
 	    )
 	  }
@@ -4904,6 +4904,7 @@ if ('serviceWorker' in navigator) {
 		    $('subscription').value = JSON.stringify(sub);
 		    $('user').disabled = '';
 		}
+		// TODO open unsubscribe
 	  },
 	  function (error) {
 	    alert('push notification setup error : ' + error.toString())
