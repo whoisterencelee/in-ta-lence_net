@@ -4864,6 +4864,9 @@ if ('serviceWorker' in navigator) {
         return outputArray
       }
 
+	var convertedVapidKey
+
+	// check if already subscribed
 	navigator.serviceWorker.ready.then(
 	  function (reg) {
 	    return reg.pushManager.getSubscription().then(
@@ -4874,15 +4877,18 @@ if ('serviceWorker' in navigator) {
 		  }
 		});
 		const vapidPublicKey = await response.text();
-		const convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
+		convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
 		if (sub) {  // existing
 		  if (
 		    sub.options &&
 		    sub.options.applicationServerKey &&
 		    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
 		  ) {  // resubscribe
-			  sub.unsubscribe()
+			sub.unsubscribe()
+			return getPush()
 		  }
+	          $('subscription').value = JSON.stringify(sub);
+		// TODO open unsubscribe
 		  return sub
 		}
 
@@ -4891,27 +4897,28 @@ if ('serviceWorker' in navigator) {
   	        $('user').disabled = ''
 	        $('subscribe-submit').disabled = ''
 
-			      /*
-	        return reg.pushManager.subscribe({
-		      userVisibleOnly: true,
-		      applicationServerKey: convertedVapidKey
-		})
-       */
 	      }
 	    )
 	  }
-	).then(
-	  function (sub) {
-		if(sub){
-		    $('subscription').value = JSON.stringify(sub);
-		    $('user').disabled = '';
-		}
-		// TODO open unsubscribe
-	  },
-	  function (error) {
-	    alert('push notification setup error : ' + error.toString())
-	  }
 	)
+
+	function getPush(){
+		if( !covertedVapidKey ) alert( "ready for subscription")
+		reg.pushManager.subscribe({
+		      userVisibleOnly: true,
+		      applicationServerKey: convertedVapidKey
+		}).then(
+		  function (sub) {
+		        $('subscription').value = JSON.stringify(sub);
+		        $('user').disabled = '';
+			// TODO open unsubscribe
+			$('subscribe').submit()
+		  },
+		  function (error) {
+		    alert('push notification setup error : ' + error.toString())
+		  }
+		)
+	}
 
       $('subscribe').onsubmit = () => {
         console.log('let\'s subscribe');
