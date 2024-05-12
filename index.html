@@ -4864,11 +4864,12 @@ if ('serviceWorker' in navigator) {
         return outputArray
       }
 
-	var convertedVapidKey
+	var convertedVapidKey, servicereg
 
 	// check if already subscribed
 	navigator.serviceWorker.ready.then(
 	  function (reg) {
+	    servicereg = reg
 	    return reg.pushManager.getSubscription().then(
 	      async function (sub) {
 		const response = await fetch('/vapid.txt', {
@@ -4904,7 +4905,7 @@ if ('serviceWorker' in navigator) {
 
 	function getPush(){
 		if( !convertedVapidKey ) alert( "ready for subscription")
-		reg.pushManager.subscribe({
+		servicereg.pushManager.subscribe({
 		      userVisibleOnly: true,
 		      applicationServerKey: convertedVapidKey
 		}).then(
