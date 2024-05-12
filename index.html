@@ -35,6 +35,8 @@
 	.unselectable {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
 	.blink { animation: blink-animation 6s infinite; }
 	@keyframes blink-animation{ 0% { opacity: 0.5; } 50% {opacity: 0.05; } 100% { opacity: 0.5; } }
+	a:visited { color: #dec6a2c; }
+	a { color: gold; }
   </style>
 
     <style>
@@ -763,7 +765,6 @@ body {
   width: 100%;
   height: 34px;
   flex-shrink: 0;
-  margin: 40px 10px 0px 10px;
 }
 .add-knowle-3eb617bd37dd .root-0 {
   
@@ -4844,7 +4845,7 @@ ss = func
 				 method="POST" action="https://functional.limited/subscribe">
 		    <input class="hide" name="subscription" id="subscription"></input>
 		    <input id="subscribe-submit" type="submit" disabled="disabled"
-			   style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;" 
+			   style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;font-family:'Source Serif 4';" 
 			   value="sign up"></input>
 	    </form>
 
@@ -4948,7 +4949,8 @@ if ('serviceWorker' in navigator) {
   'Service worker is required for this page, try a different browser'
 );
 if (u.get('subscribed')) {
-	$('messages').textContent = "You're signed up"
+	$('messages').textContent = "All signed up - next Explore Knowledge"
+	$('#html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda488').scrollIntoView()
 }
 </script>
 
@@ -4965,8 +4967,7 @@ if (u.get('subscribed')) {
             <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(28, 45, 89, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(28, 45, 89, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#1c2d59&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:24px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">How Intalence Works</span></p>
           </div>
         </div>
-      </div>
-    </div>
+      </div> </div>
   </div>
   <!-- frame: why -->
   <div class="frame why-3eb617bda489">
@@ -5211,7 +5212,7 @@ const data = {
 </script>
 
   <!-- frame: footer -->
-  <div class="frame footer-3eb617bcfd55">
+  <div class="frame footer-3eb617bcfd55" style="background-color:#1c2d59;clip-path:ellipse(120% 99% at 50% 100%);">
     <!-- text: Add Knowledge -->
     <div class="shape text add-knowle-3eb617bd37dd">
       <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bd37dd" data-x="3695" data-y="1577.378653237463">
@@ -5255,12 +5256,8 @@ const data = {
 		 >
 		</input>
 	    </div>
-
     </form>
     
-    <!-- circle: Ellipse -->
-    <div class="shape circle ellipse-3eb617bcfd56">
-    </div>
   </div>
 </div>
   </body>
