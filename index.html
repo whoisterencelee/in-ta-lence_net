@@ -27,8 +27,6 @@
   <meta name="referrer" content="no-referrer-when-downgrade"><!-- important https://web.dev/referrer-best-practices/ -->
   <meta name="theme-color" content="#1c2d59">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap" rel="stylesheet"> 
-
   <style>
 	/* div {display:flex;flex-direction:column;flex-wrap:wrap;align-items:stretch;} */
 	.hide {display:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
@@ -40,13 +38,6 @@
   </style>
 
     <style>
-    @font-face {
-    font-family: 'sourcesanspro';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url(https://design.penpot.app/fonts/sourcesanspro-regular.woff) format('woff');
-  }
 /* cyrillic-ext */
 @font-face {
   font-family: 'Source Serif 4';
@@ -5224,7 +5215,7 @@ const data = {
       </div>
     </div>
     <!-- frame: form -->
-    <form id=advancing style=display:flex;flex-direction:column;>
+    <form id=advancing style=display:flex;flex-direction:column; method=POST action="https://functional.limited/forms">
 	<style>
 	#advancing { 
 		width:70%; 
@@ -5243,15 +5234,20 @@ const data = {
 	}
 	</style>
 
-	    <input class=hide placeholder="hpot"></input>
+		<div class=hide>
+			<input name=_next value="https://intalence.net?success"></input>
+			<input name=_gotcha></input>
+			<input name=_to value="https://intalence.net/approve.html"></input>
+		</div>
+
 	    <input type=email placeholder="contact email" required></input>
 	    <input placeholder="concept" required></input>
 	    <input type=textarea placeholder="detail" required></input>
 	    <input placeholder="prerequiste"></input>
 	    <input placeholder="motivation" required></input>
-	    <div style=margin:0.35em;><span style=opacity:0.5;>start date</span><input type=date placeholder="start date" required style=min-width:0;></input>
+	    <div style=margin:0.35em;display:flex;align-items:center;><span style=opacity:0.5;>start date</span><input type=date placeholder="start date" required style=min-width:0;></input>
 		    <input id="advancing-submit" type="submit"
-		 style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;"
+		 style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;"
 		 value=submit
 		 >
 		</input>
