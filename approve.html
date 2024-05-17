@@ -4835,6 +4835,7 @@ ss = func
 				 style="width:auto;margin:0;padding:0;display:none;"
 				 method="POST" action="https://functional.limited/subscribe">
 		    <input class="hide" name="subscription" id="subscription"></input>
+		    <input name=user id=user></input>
 		    <input id="subscribe-submit" type="submit" disabled="disabled"
 			   style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;font-family:'Source Serif 4';" 
 			   value="sign up"></input>
@@ -4842,7 +4843,7 @@ ss = func
 
 <script> // subscribe 240510
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service_worker.js').then(
+  navigator.serviceWorker.register('./approve_service_worker.js').then(
     function () {
       console.log('Successfully registered service worker');
       function urlBase64ToUint8Array(base64String) {
