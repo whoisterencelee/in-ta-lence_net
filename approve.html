@@ -4841,9 +4841,9 @@ ss = func
 			   value="sign up"></input>
 	    </form>
 
-<script> // subscribe 240510
+<script> // subscribe 240510 approve
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./approve_service_worker.js').then(
+  navigator.serviceWorker.register('service_worker.js' , { scope: "approve.html" } ).then(
     function () {
       console.log('Successfully registered service worker');
       function urlBase64ToUint8Array(base64String) {
