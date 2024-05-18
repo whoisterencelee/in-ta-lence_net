@@ -5072,7 +5072,7 @@ if (u.get('subscribed')) {
 <script src="./js/d3.v7.min.js"></script>
 <script type="module">
 
-const data = {
+var knowledge = {
 	nodes : [ 
 		{ id : "Math" , group : 1 } ,
 		{ id : "Science" , group : 1 } ,
@@ -5116,8 +5116,8 @@ const data = {
 
   // The force simulation mutates links and nodes, so create a copy
   // so that re-evaluating this cell produces the same result.
-  const links = data.links.map(d => ({...d}));
-  const nodes = data.nodes.map(d => ({...d}));
+  const links = knowledge.links.map(d => ({...d}));
+  const nodes = knowledge.nodes.map(d => ({...d}));
 
   // Create a simulation with several forces.
   const simulation = d3.forceSimulation(nodes)
@@ -5242,7 +5242,7 @@ const data = {
 
 	    <input type=email placeholder="contact email" required></input>
 	    <input placeholder="concept" required></input>
-	    <input type=textarea placeholder="detail or https://url" required></input>
+	    <input type=textarea placeholder="details or https://url" required></input>
 	    <input placeholder="prerequiste"></input>
 	    <input placeholder="motivation" required></input>
 	    <div style=margin:0.35em;display:flex;align-items:center;><span style=opacity:0.5;>start date</span><input type=date placeholder="start date" required style=min-width:0;></input>
