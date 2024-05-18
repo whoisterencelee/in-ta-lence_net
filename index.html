@@ -4842,7 +4842,7 @@ ss = func
 
 <script> // subscribe 240510
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./inbox/service_worker.js').then(
+  navigator.serviceWorker.register('service_worker.js').then(
     function () {
       console.log('Successfully registered service worker');
       function urlBase64ToUint8Array(base64String) {
