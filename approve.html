@@ -4813,13 +4813,13 @@ ss = func
       <div class="text-node-html" id="html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda4ab" data-x="3919" data-y="484.87865323746314">
         <div class="root rich-text root-0" style="display:flex;white-space:break-spaces;align-items:flex-start" xmlns="http://www.w3.org/1999/xhtml">
           <div class="paragraph-set root-0-paragraph-set-0">
-            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(222, 198, 162, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(222, 198, 162, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#dec6a2&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:36px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400">Knowledge Graph Approve</span></p>
+            <p class="paragraph root-0-paragraph-set-0-paragraph-0" dir="auto"><span class="text-node root-0-paragraph-set-0-paragraph-0-text-0" style="color:rgba(222, 198, 162, 1);text-transform:none;line-break:auto;overflow-wrap:initial;white-space:break-spaces;text-rendering:geometricPrecision;caret-color:rgba(222, 198, 162, 1);text-decoration:none;--font-id:gfont-source-serif-4;--fills:[[&quot;^ &quot;,&quot;~:fill-color&quot;,&quot;#dec6a2&quot;,&quot;~:fill-opacity&quot;,1]];letter-spacing:0px;font-size:36px;font-family:&quot;Source Serif 4&quot;;font-style:normal;font-weight:400;">Knowledge Graph Approval</span></p>
           </div>
         </div>
       </div>
     </div>
 
-    <div style=display:flex;min-width:300px;gap:1em;>
+    <div style=display:flex;min-width:300px;gap:1em;margin:1em;>
     
 	    <form id="subscribe" name="subscribe" 
 				 style="width:auto;margin:0;padding:0;display:none;"
@@ -4931,7 +4931,7 @@ if ('serviceWorker' in navigator) {
   'Service worker is required for this page, try a different browser'
 );
 if (u.get('subscribed')) {
-	$('messages').textContent = "All signed up - next Explore Knowledge"
+	$('messages').textContent = "Approval links will be sent to you"
 		window.addEventListener('load',()=>$('html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda488').scrollIntoView())
 }
 </script>
@@ -4947,7 +4947,7 @@ if (u.get('subscribed')) {
 
     <div style="font-size:small;display:flex;flex-wrap:wrap;gap:0 1em;flex-direction:column;align-content:center;width:100%;">
 	    <div>• Allow notification to receive approval token link</div>
-	    <div>• Token links will be send to you</div>
+	    <div>• Token links will be send to you in the future</div>
 	    <div>• Stay up-to-date with "community identity living document"</div>
     </div>
 
@@ -4970,7 +4970,7 @@ if (u.get('subscribed')) {
 <!-- switch to using sigma.js in the future for better performance -->
 <script src="./js/d3.v7.min.js"></script>
 <script src=knowledge.js></script>
-<script type="module">
+<script>
 
 function knowledgeGraph(){
   // Specify the dimensions of the chart.
@@ -4978,7 +4978,7 @@ function knowledgeGraph(){
   const height = 928;
 
   // Specify the color scale.
-  const color = [ "#1c2d59" , "#8b575c" , "#d4e4bc" , "#96acb7" , "#f4989c" ]
+  const color = [ "#1c2d59" , "#8b575c" , "red" , "#d4e4bc" , "#96acb7" , "#f4989c" ]
 
   // The force simulation mutates links and nodes, so create a copy
   // so that re-evaluating this cell produces the same result.
@@ -5068,7 +5068,7 @@ function knowledgeGraph(){
   container.append( svg.node() )
 } // end of knowledgeGraph
 
-knowledgeGraph()
+//knowledgeGraph()
 </script>
 
 
@@ -5110,12 +5110,19 @@ knowledgeGraph()
 			<input name=_to value="https://intalence.net/approve.html"></input>
 		</div>
 
-	    <input type=email placeholder="contact email" required></input>
-	    <input placeholder="concept" required></input>
-	    <input type=textarea placeholder="details or https://url" required></input>
-	    <input placeholder="prerequiste"></input>
-	    <input placeholder="motivation" required></input>
-	    <div style=margin:0.35em;display:flex;align-items:center;><span style=opacity:0.5;>start date</span><input type=date placeholder="start date" required style=min-width:0;></input>
+		<label style=opacity:0.2>contact email</label>
+		<input name=contact.email id=contact.email type=email placeholder="contact email" required></input>
+		<label style=opacity:0.2>concept</label>
+		<input name=concept id=concept placeholder="concept" required></input>
+		<label style=opacity:0.2>details</label>
+		<input name=details id=details type=textarea placeholder="details or https://url" required></input>
+		<label style=opacity:0.2>prerequiste</label>
+		<input name=prerequiste id=prerequiste placeholder="prerequiste"></input>
+		<label style=opacity:0.2>motivation</label>
+		<input name=motivation id=motivation placeholder="motivation" required></input>
+		<div style=margin:0.35em;display:flex;align-items:center;>
+		    <span style=opacity:0.2;>start date</span>
+		    <input name=startdate id=start.date type=date placeholder="start date" required style=min-width:0;></input>
 		    <input id="advancing-submit" type="submit"
 		 style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;"
 		 value=modify
@@ -5127,11 +5134,45 @@ knowledgeGraph()
     <div style="display:flex;width:100%;justify-content:center;margin:0 0 1em 0;flex-direction:column;align-items:center;">
 	    <span style=color:white;font-size:1.5em;margin:0.3em;>or</span>
 	    <form>
+		    <div class=hide>
+			<input name=_gotcha></input>
+			<input name=_token id=_token></input>
+			<input name=_msgId id=_msgId></input>
+			<input name=_to value="https://intalence.net/index.html/knowledge.js"></input>
+			<input name=_next value="https://intalence.net"></input>
+		    </div>
+
 		    <input id="advancing-submit" type="submit"
 			 style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;font-size:1.4em;"
-			 value="approve" >
+			 value="everything's good, approve" >
 	    </form>
     </div>
+
+    <script>
+	var msgId = u.get( 'msgId' )	    
+	if (msgId) {
+			    fetch( 'https://functional.limited/msgs/intalence.net/approve.html/' + msgId ).then( res => {
+					res.json().then( msg => {
+						$('contact.email').value=msg[ "contact.email" ]
+						$('concept').value=msg[ "concept" ]
+						$('details').value=msg[ "details" ]
+						$('prerequiste').value=msg[ "prerequiste" ]
+						$('motivation').value=msg[ "motivation" ]
+						$('start.date').value=msg[ "start.date" ]
+						$('_msgId').value=msgId
+						$('_token').value= u.get( 'token' )
+
+						    var concept = $( 'concept' ).value
+						    knowledge.nodes.push( { id : concept , group : 3 , } )
+						    $('prerequiste').value.split( /[,;]+/ ).forEach( subject => {
+									knowledge.links.push( { source : subject , target : concept , value : 10 } )
+								} )
+						    knowledgeGraph()
+					})
+			})
+	}
+
+    </script>
     
   </div>
 </div>
