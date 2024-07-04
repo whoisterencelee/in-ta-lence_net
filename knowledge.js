@@ -14,7 +14,7 @@ var knowledge = {
 		{ id : "culture" , group : 2 } ,
 		{ id : "language" , group : 2 } ,
 		{ id : "english" , group : 2 } ,
-		{ id : "music" , group : 1 , details : "undefined" } ,
+		{ id : "music" , group : 1 , details : "https://design.penpot.app/#/view/f336a94c-01dc-8157-8004-9b2475b55328?page-id=f336a94c-01dc-8157-8004-9b2475b55329&section=interactions&index=0&share-id=f336a94c-01dc-8157-8004-9b24f0aad2d5" } ,
 		/* add nodes here */
 	] ,
 	links : [
