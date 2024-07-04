@@ -14,6 +14,7 @@ var knowledge = {
 		{ id : "culture" , group : 2 } ,
 		{ id : "language" , group : 2 } ,
 		{ id : "english" , group : 2 } ,
+		{ id : "music" , group : 1 , details : "undefined" } ,
 		/* add nodes here */
 	] ,
 	links : [
@@ -30,6 +31,7 @@ var knowledge = {
 		{ source : "culture" , target : "art" , value : 1 } ,
 		{ source : "culture" , target : "language" , value : 1 } ,
 		{ source : "language" , target : "english" , value : 1 } ,
+		{ source : "art" , target : "music" , value : 1 } ,
 		/* add links here */
 
 	]
