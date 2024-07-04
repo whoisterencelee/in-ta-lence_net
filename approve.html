@@ -5014,6 +5014,7 @@ function knowledgeGraph(){
     .join( "a" )
 	.attr( "href" , d => d.details )
     .append( "text" )
+	.text( d => d.id )
 	.style( "font-size" , "1em" )
 	.style( "font-family" , "sourcesanspro" )
 	.attr( "fill" , d => color[ ( d.group - 1 ) % color.length ] )
