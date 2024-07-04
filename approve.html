@@ -5165,7 +5165,7 @@ function knowledgeGraph(){
 						$('_token').value= u.get( 'token' )
 
 						    var concept = $( 'concept' ).value
-						    knowledge.nodes.push( { id : concept , group : 3 , details : $( 'details ' ).value } )
+						    knowledge.nodes.push( { id : concept , group : 3 , details : $( 'details' ).value } )
 						    $('prerequiste').value.split( /[,;]+/ ).forEach( subject => {
 									knowledge.links.push( { source : subject , target : concept , value : 10 } )
 								} )
