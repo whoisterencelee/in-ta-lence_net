@@ -4836,7 +4836,7 @@ ss = func
 				 method="POST" action="https://functional.limited/subscribe">
 		    <input class="hide" name="subscription" id="subscription"></input>
 		    <input id="subscribe-submit" type="submit" disabled="disabled"
-			   style="background-color:#dec6a2;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;font-family:'Source Serif 4';" 
+			   style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;font-family:'Source Serif 4';" 
 			   value="sign up"></input>
 	    </form>
 
@@ -5112,7 +5112,9 @@ function knowledgeGraph(){
   const node = svg.append("g")
     .selectAll()
     .data(nodes)
-    .join( "text" )
+    .join( "a" )
+	.attr( "href" , d => d.details )
+    .append( "text" )
 	.text( d => d.id )
 	.style( "font-size" , "1em" )
 	.style( "font-family" , "sourcesanspro" )
@@ -5160,11 +5162,6 @@ function knowledgeGraph(){
     event.subject.fx = null;
     event.subject.fy = null;
   }
-
-  // When this cell is re-run, stop the previous simulation. (This doesn’t
-  // really matter since the target alpha is zero and the simulation will
-  // stop naturally, but it’s a good practice.)
-  // invalidation.then(() => simulation.stop());
 
   container.append( svg.node() )
 } // end of knowledge graph
