@@ -389,24 +389,6 @@ body {
   min-height: 168px;
 }
 
-/* Character */
-.character-3eb96c8fe06b {
-  position: relative;
-  width: 100%;
-  #height: auto;
-  overflow-x: auto;
-  display: flex;
-  #align-items: start;
-  #align-content: stretch;
-  #justify-content: space-evenly;
-  gap: 1em;
-  padding: 1em;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  min-height: 190px;
-  scrollbar-width: thin;
-}
-
 /* Title */
 .title-3eba34787e04 {
   position: relative;
@@ -1374,7 +1356,7 @@ if (u.get('subscribed')) {
   <!-- frame: why -->
   <div class=unselectable style=width:100%;>
     <!-- frame: Character -->
-    <div id=character style=overflow-x:auto;display:flex;gap:1em;padding:1em;flex-direction:row;flex-wrap:nowrap;scroll-width:thin;>
+    <div id=carousel style=overflow-x:auto;display:flex;gap:1em;padding:1em;flex-direction:row;flex-wrap:nowrap;scrollbar-width:thin;>
 	<style>
 	.cphoto { 
 		display: flex;
@@ -1385,6 +1367,7 @@ if (u.get('subscribed')) {
 		flex: 1;
 		min-height: 200px;
 		min-width: 180px;
+		font-family: "Source Serif 4";
 	}
 	.cphoto img {
 		clip-path:circle();
@@ -1414,43 +1397,29 @@ if (u.get('subscribed')) {
 			<input id=cphoto.url name=cphoto.url type=url placeholder="photo url" required onchange="cphotoChange()"></input>
 			<input name=contact.email type=email placeholder="contact email" required></input>
 			<input type="submit" style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;" value=submit></input>
-			<script>
-			function cphotoOpen(){ $( 'cphotoForm' ).style.display="flex"; $( 'cphotoImg' ).style.opacity=1 }
-			function cphotoChange(){ $( 'cphotoImg' ).src = $( 'cphoto.url' ).value }
-			</script>
 		</form>
 	</div>
-      <!-- frame: participate -->
-      <div class=cphoto>
-	<img src="assets/raisehandandparticipate.png"></img>
-	<p>Engage participation</p>
-      </div>
-      <!-- frame: hierarchy -->
-      <div class=cphoto>
-	<img src="assets/girlreadingbook.png"></img>
-	<p>Accumulate knowledge</p>
-      </div>
-      <!-- frame: lab -->
-      <div class=cphoto>
-	<img src="assets/researchboy.png"></img>
-	<p>Discover insights</p>
-      </div>
-      <!-- frame: quality -->
-      <div class=cphoto>
-	<img src="assets/groupfeedback.png"></img>
-	<p>Analytical approach</p>
-      </div>
-      <!-- frame: value -->
-      <div class=cphoto>
-	<img src="assets/wealthteacher.png"></img>
-	<p>Motivation driven</p>
-      </div>
-    </div>
-  </div>
-
+	<script src="./cphotos.js"></script>
+	<script>
+	function cphotoCreate( src , comment ){ 
+		cphotoImg = document.createElement( "img" )
+		cphotoImg.src = src
+		cphotoComment = document.createElement( "p" )
+		cphotoComment.textContent = comment
+		
+		cphotoDiv = document.createElement( "div" )
+		cphotoDiv.className = "cphoto"
+		cphotoDiv.appendChild( cphotoImg )
+		cphotoDiv.appendChild( cphotoComment )
+		$( 'carousel' ).appendChild( cphotoDiv )
+	}
+	function cphotoOpen(){ $( 'cphotoForm' ).style.display="flex"; $( 'cphotoImg' ).style.opacity=1 }
+	function cphotoChange(){ $( 'cphotoImg' ).src = $( 'cphoto.url' ).value }
+	cphotos.forEach( c => cphotoCreate( c.src , c.comment ) )
+	</script>
 	<script>
 	function carousel(){
-		const scrollContainer = $( "character" )
+		const scrollContainer = $( "carousel" )
 		const scrollDuration = 28;
 		let currentX = 0;
 		let scrollStep = 1;
@@ -1475,6 +1444,9 @@ if (u.get('subscribed')) {
 	}
 	carousel()
 	</script>
+    </div>
+  </div>
+
   <!-- frame: Title -->
   <div class="frame title-3eb617bda487">
     <!-- text: Knowledge Explore  -->
