@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>intalence</title>
+  <meta name="description" content="Sustainable Quality Learning for Everyone">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!--Insert OG Markup -->
+  <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website">
+  <meta prefix="og: http://ogp.me/ns#" property="og:title" content="intalence">
+  <meta prefix="og: http://ogp.me/ns#" property="og:description" content="sustainable quality learning for everyone">
+  <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://intalence.net/icon.png">
+  <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://intalence.net">
+  <!--Insert Twitter Card Markup -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@intalence">
+  <meta name="twitter:domain" content="https://intalence.net">
+  <meta name="twitter:title" content="intalence.net">
+  <meta name="twitter:description" content="sustainable quality learning for everyone">
+  <meta name="twitter:image" content="https://intalence.net/icon.png">
+
+  <meta name="referrer" content="no-referrer-when-downgrade"><!-- important https://web.dev/referrer-best-practices/ -->
+  <meta name="theme-color" content="#1c2d59">
+
+  <style>
+	/* div {display:flex;flex-direction:column;flex-wrap:wrap;align-items:stretch;} */
+	.hide {display:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+	.unselectable {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+	.blink { animation: blink-animation 6s infinite; }
+	@keyframes blink-animation{ 0% { opacity: 0.5; } 50% {opacity: 0.05; } 100% { opacity: 0.5; } }
+	a:visited { color: #dec6a2c; }
+	a { color: gold; }
+  </style>
+
+    <style>
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhZdDtwG.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnh9dDtwG.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhhdDtwG.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhRdDtwG.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhVdDtwG.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://design.penpot.app/internal/gfonts/font/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhtdDg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 98vw;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.text-node { background-clip: text !important; -webkit-background-clip: text !important; }
+
+/* ipad - code */
+.ipad-cod-3eb617bcfd54 {
+  position: relative;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 0px;
+  display: flex;
+  align-items: start;
+  align-content: stretch;
+  justify-content: start;
+  z-index: 0;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+/* footer */
+.footer-3eb617bcfd55 {
+  position: relative;
+  width: 100%;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: start;
+  column-gap: 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex: 1;
+  padding:2em;
+}
+
+/* form */
+.form-3eb617bd37c8 {
+  position: relative;
+  width: 100%;
+  #height: 182px;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-evenly;
+  column-gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1024px;
+}
+
+/* build item */
+.build-item-3eb617bd37c9 {
+  position: relative;
+  height: 182px;
+  border-radius: 0px;
+  box-shadow: ;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  align-content: stretch;
+  justify-content: start;
+  padding: 5px 5px 5px 5px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex: 1;
+  flex-shrink: 0;
+  min-width: 300px;
+}
+
+/* Rectangle */
+.rectangle-3eb617bd37ca {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0px;
+  flex-shrink: 0;
+  margin: 0px 0px 10px 0px;
+}
+
+/* Rectangle */
+.rectangle-3eb617bd37cc {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0px;
+  flex-shrink: 0;
+  margin: 0px 0px 10px 0px;
+}
+
+/* date */
+.date-3eb617bd37cd {
+  width: 216px;
+  height: 17.67px;
+  flex-shrink: 0;
+}
+.date-3eb617bd37cd .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.date-3eb617bd37cd .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.date-3eb617bd37cd .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.date-3eb617bd37cd .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 14px;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Rectangle */
+.rectangle-3eb617bd37ce {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0px;
+  flex-shrink: 0;
+  margin: 0px 0px 10px 0px;
+}
+
+/* Rectangle */
+.rectangle-3eb617bd37d0 {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0px;
+  flex-shrink: 0;
+  margin: 0px 0px 10px 0px;
+}
+
+/* #title */
+.title-3eb617bda486 {
+  width: 100%;
+  height: 30px;
+  flex-shrink: 0;
+  margin: 5px 0px 5px 0px;
+}
+.title-3eb617bda486 .root-0 {
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.title-3eb617bda486 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.title-3eb617bda486 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+.title-3eb617bda486 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(28, 45, 89, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(28, 45, 89, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 24px;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Title */
+.title-3eb617bda487 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  align-content: stretch;
+  justify-content: center;
+  padding: 0px 0px 0px 0px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 20px 0px 20px 0px;
+  min-height: 29px;
+}
+
+/* why  */
+.why-3eb617bda488 {
+  height: 29px;
+  flex: 1;
+  flex-shrink: 0;
+}
+.why-3eb617bda488 .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.why-3eb617bda488 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.why-3eb617bda488 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+.why-3eb617bda488 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(28, 45, 89, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(28, 45, 89, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 24px;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* why */
+.why-3eb617bda489 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 168px;
+}
+
+/* Title */
+.title-3eba34787e04 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: start;
+  align-content: stretch;
+  justify-content: center;
+  padding: 0px 0px 0px 0px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 20px 0px 20px 0px;
+  min-height: 29px;
+}
+
+/* why  */
+.why-3eba34787e05 {
+  height: 29px;
+  flex: 1;
+  flex-shrink: 0;
+}
+.why-3eba34787e05 .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.why-3eba34787e05 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.why-3eba34787e05 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+.why-3eba34787e05 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(28, 45, 89, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(28, 45, 89, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 24px;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* big cover - code */
+.big-cover{
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  text-shadow: 1px 1px 1px grey;
+  width:100%;
+}
+
+/* for everyone */
+.for-everyo-3eb617bda4aa .root-0 {
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.for-everyo-3eb617bda4aa .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.for-everyo-3eb617bda4aa .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.for-everyo-3eb617bda4aa .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(222, 198, 162, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(222, 198, 162, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 24px;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Sustainable Quality Learning */
+.sustainabl-3eb617bda4ab {
+  width: 300px;
+  height: 88px;
+  box-shadow: ;
+  flex-shrink: 0;
+}
+.sustainabl-3eb617bda4ab .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.sustainabl-3eb617bda4ab .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.sustainabl-3eb617bda4ab .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.sustainabl-3eb617bda4ab .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(222, 198, 162, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(222, 198, 162, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 36px;
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Board */
+.board-3ec248f18058 {
+  position: absolute;
+  left: 0px;
+  top: 122px;
+  width: 100%;
+  display: none;
+  z-index: -1;
+  flex: 1;
+  flex-shrink: 0;
+}
+
+/* bashir_teaching */
+.bashirtea-3eb617bda4a9 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.bashirtea-3eb617bda4a9 {
+  position: absolute;
+  left: 0px;
+  top: -656px;
+  width: 768px;
+  height: 891px;
+  border-radius: 0px;
+}
+
+/* header */
+.header-3eb617bda4ac {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  background: #1D4107;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-between;
+  padding: 10px 10px 10px 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 300px;
+}
+
+/* calendar */
+.calendar-3eb617bda4ad {
+  position: relative;
+  width: 71px;
+  height: 32px;
+  border-radius: 0px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* 📅 */
+.3eb617bda4ae {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 71px;
+  height: 32px;
+}
+.3eb617bda4ae .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: center;
+}
+.3eb617bda4ae .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  min-width: 100%;
+  margin-right: 1px;
+  vertical-align: top;
+}
+.3eb617bda4ae .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+}
+.3eb617bda4ae .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(0, 0, 0, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: break-spaces;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 24px;
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* search */
+.search-3eb617bda4af {
+  position: relative;
+  height: 40px;
+  background: #364C85;
+  border-radius: 25px;
+  box-shadow: inset 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  flex: 1;
+  flex-shrink: 0;
+  margin: 10px 0px 10px 20px;
+  min-width: 0px;
+  align-self: center;
+}
+
+/* Search ... */
+.search-3eb617bda4b0 {
+  position: absolute;
+  left: 15px;
+  top: 13.81px;
+  width: 140px;
+  height: 17px;
+}
+.search-3eb617bda4b0 .root-0 {
+  
+  
+  display: flex;
+  white-space: break-spaces;
+  align-items: flex-start;
+}
+.search-3eb617bda4b0 .root-0-paragraph-set-0 {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: inherit;
+  
+  margin-right: 1px;
+  vertical-align: top;
+}
+.search-3eb617bda4b0 .root-0-paragraph-set-0-paragraph-0 {
+  font-size: 0;
+  line-height: 1.2;
+  margin: 0;
+  text-align: left;
+}
+.search-3eb617bda4b0 .root-0-paragraph-set-0-paragraph-0-text-0 {
+  color: rgba(228, 209, 181, 1);
+  text-transform: none;
+  
+  line-break: auto;
+  overflow-wrap: initial;
+  white-space: pre;
+  text-rendering: geometricPrecision;
+  caret-color: rgba(228, 209, 181, 1);
+  text-decoration: none;
+  letter-spacing: 0px;
+  font-size: 14px;
+  font-family: "sourcesanspro";
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* intalence_logo_240106_original.sideway.web */
+.intalence-3eb617bda4b1 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.intalence-3eb617bda4b1 {
+  position: relative;
+  width: 164px;
+  height: 64.38px;
+  flex-shrink: 0;
+}
+
+/* svg-g */
+.svgg-3eb617bda4b5 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgg-3eb617bda4b5 {
+  position: absolute;
+  left: 0.49px;
+  top: 1.13px;
+  width: 161.03px;
+  height: 63.25px;
+}
+
+/* svg-g */
+.svgg-3eb617bda4bf > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgg-3eb617bda4bf {
+  position: absolute;
+  left: 71.09px;
+  top: 23.42px;
+  width: 89.94px;
+  height: 7.73px;
+}
+
+/* svg-g */
+.svgg-3eb617bda4c0 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgg-3eb617bda4c0 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 89.94px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c9 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c9 {
+  position: absolute;
+  left: 80.33px;
+  top: 0px;
+  width: 9.61px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c8 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c8 {
+  position: absolute;
+  left: 68.94px;
+  top: 0px;
+  width: 10.14px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c7 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c7 {
+  position: absolute;
+  left: 57.41px;
+  top: 0px;
+  width: 10.06px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c6 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c6 {
+  position: absolute;
+  left: 46.36px;
+  top: 0px;
+  width: 9.61px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c5 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c5 {
+  position: absolute;
+  left: 36.21px;
+  top: 0px;
+  width: 9.11px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c4 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c4 {
+  position: absolute;
+  left: 23.46px;
+  top: 0px;
+  width: 11.96px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c3 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c3 {
+  position: absolute;
+  left: 14.91px;
+  top: 0px;
+  width: 10.47px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c2 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c2 {
+  position: absolute;
+  left: 3.82px;
+  top: 0px;
+  width: 10.06px;
+  height: 7.73px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4c1 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4c1 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 2.16px;
+  height: 7.73px;
+}
+
+/* svg-g */
+.svgg-3eb617bda4bb > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgg-3eb617bda4bb {
+  position: absolute;
+  left: 71.09px;
+  top: 35.42px;
+  width: 20.71px;
+  height: 9.88px;
+}
+
+/* svg-g */
+.svgg-3eb617bda4bc > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgg-3eb617bda4bc {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 20.71px;
+  height: 9.88px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4be > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4be {
+  position: absolute;
+  left: 10.87px;
+  top: 0px;
+  width: 9.84px;
+  height: 9.88px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4bd > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4bd {
+  position: absolute;
+  left: 0px;
+  top: 0.04px;
+  width: 9.75px;
+  height: 9.79px;
+}
+
+/* svg-g */
+.svgg-3eb617bda4b6 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgg-3eb617bda4b6 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 63.25px;
+  height: 63.25px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4ba > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4ba {
+  position: absolute;
+  left: 51.82px;
+  top: 4.89px;
+  width: 6.83px;
+  height: 6.83px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4b9 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4b9 {
+  position: absolute;
+  left: 50.32px;
+  top: 6.4px;
+  width: 6.83px;
+  height: 6.83px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4b8 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4b8 {
+  position: absolute;
+  left: 1.51px;
+  top: 0px;
+  width: 61.74px;
+  height: 61.74px;
+}
+
+/* svg-path */
+.svgpath-3eb617bda4b7 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgpath-3eb617bda4b7 {
+  position: absolute;
+  left: 0px;
+  top: 1.51px;
+  width: 61.74px;
+  height: 61.74px;
+}
+
+/* svg-rect */
+.svgrect-3eb617bda4b4 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgrect-3eb617bda4b4 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 164px;
+  height: 64px;
+}
+
+/* svg-defs */
+.svgdefs-3eb617bda4b3 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.svgdefs-3eb617bda4b3 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 164px;
+  height: 64px;
+}
+
+/* base-background */
+.basebackg-3eb617bda4b2 > svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0px,0px);
+}
+.basebackg-3eb617bda4b2 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 164px;
+  height: 64px;
+  display: none;
+}
+    </style>
+    <script>$=(i=>document.getElementById(i)||{})</script>
+    <script>u=new URLSearchParams(location.search)</script>
+    <script>realurl=(/\/$/.test(document.location.pathname)?document.location.pathname+'index.html':document.location.pathname)</script>
+  </head>
+  <body>
+  <!-- frame: ipad - code -->
+<div class="frame ipad-cod-3eb617bcfd54">
+  <!-- frame: header -->
+  <div class="frame header-3eb617bda4ac">
+	  <img style="height:4vh;" src="./assets/intalence_logo_240106_original.sideway.web.svg"></img>
+
+	  <!-- messages -->
+	  <div id=messages style="color:#dec6a2;font-size:small;flex-grow:1;text-align:center;font-family:'Source Serif 4';">
+	  </div>
+
+<script>// https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB
+var dbschemas = {
+        inbox : { version : 1 , keyPath : "n" , autoIncrement : true , indices : [ 'time' ] }
+}
+	dbschemas[ document.location.pathname ] = { version : 1 , keyPath : "n" , indices : [ 'n' ] }
+var db = {}
+function openDb( dbname , func ) {
+        console.log("openDb ...")
+        var req = indexedDB.open( dbname , dbschemas[ dbname ].version )
+        req.onsuccess = function (evt) {
+                // Equal to: db = req.result;
+                db[ dbname ] = this.result;
+                console.log("openDb DONE");
+                if( func ) func()
+        }
+        req.onerror = function (evt) {
+                console.error("openDb:", evt.target.errorCode);
+        }
+        req.onupgradeneeded = function (evt) {
+                console.log("openDb.onupgradeneeded");
+                var objstore = evt.currentTarget.result.createObjectStore(
+                                dbname , dbschemas[ dbname ]
+                                //dbname , { keyPath : dbschemas[ dbname ].keyPath } );
+                                //dbname , { keyPath: 'id', autoIncrement: true });
+                )
+                dbschemas[ dbname ].indices.forEach( index => objstore.createIndex( index , index , { unique: false }) )
+                // unique = false allow insert of same key
+        }
+}
+function store( dbname , data , func = ( stored ) => console.log( "stored " + JSON.stringify( stored ) ) ){
+        try{
+        if( !db[ dbname ] ) openDb( dbname , () => store( dbname , data , func ) )
+        else{
+                db[ dbname ].transaction( dbname , 'readwrite' ).objectStore( dbname ).add( data ).onsuccess = ( evt ) => {
+                        data[ dbschemas[ dbname ].keyPath ] = evt.target.result  // save the index into the returned obj
+                        func( data )
+                        }
+        } // end of else
+        } catch( e ){
+                // TODO need to handle full storage
+                console.log( e + " : problem storing : " + JSON.stringify( data ) )
+                func( data )  // forgiving if cannot store still move on
+        }
+}
+// var test = { time : new Date() }; store( "inbox" , test )
+
+function read( dbname , index = db[ dbname ].keyPath , key , func = ( event ) => console.log( event.target.result ) ){
+        if( !db[ dbname ] ) openDb( dbname , () => read( dbname , index , key , func ) )
+        else if( index === null ) db[ dbname ].transaction( dbname , 'readonly' ).objectStore( dbname ).get( key ).onsuccess = func
+        else db[ dbname ].transaction( dbname , 'readonly' ).objectStore( dbname ).index( index ).get( key ).onsuccess = func
+}
+// read( "inbox" , null , 1 ) // autoincrement starts at 1
+
+function range( dbname , index = db[ dbname ].keyPath , lower , upper , func = ( event ) => console.log( event.target.result.value ) ){
+        if( !db[ dbname ] ) return openDb( dbname , () => range( dbname , index , lower , upper , func ) )
+        if( upper < lower ){  // descending order
+                var temp = upper
+                upper = lower
+                lower = temp
+                var prev = "prev"
+        }
+        db[ dbname ].transaction( dbname ).objectStore( dbname ).index( index ).openCursor( IDBKeyRange.bound( lower , upper , true , true ) , prev ).onsucce
+ss = func
+}
+</script>
+
+
+  </div>
+  <!-- frame: big cover - code -->
+  <div class="frame big-cover" style="background:#1D4107; -moz-background-size: cover; -o-background-size: cover; background-size: cover; clip-path: ellipse(120% 99% at 50% 0);">
+    <!-- text: Sustainable Quality Learning -->
+    <p style="font-family:'Source Serif 4';color:rgba(222,198,162,1);font-size:2em;margin:2em;margin-bottom:1em;">
+    Carousel Photo Approval
+    </p>
+
+    <div style=display:flex;min-width:300px;gap:1em;>
+	    <form id="subscribe" name="subscribe" 
+				 style="width:auto;margin:0;padding:0;display:none;"
+				 method="POST" action="https://functional.limited/subscribe">
+		    <input class="hide" name="subscription" id="subscription"></input>
+		    <input id="subscribe-submit" type="submit" disabled="disabled"
+			   style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;font-family:'Source Serif 4';" 
+			   value="sign up"></input>
+	    </form>
+
+<script> // subscribe 240510
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service_worker.js').then(
+    function () {
+      console.log('Successfully registered service worker');
+      function urlBase64ToUint8Array(base64String) {
+        var padding = '='.repeat((4 - base64String.length % 4) % 4);
+        var base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/').replace(/\n/g, '').replace(/\r/g, '');
+        var rawData = window.atob(base64);
+        var outputArray = new Uint8Array(rawData.length);
+        for (var i = 0; i < rawData.length; ++i) {
+          outputArray[i] = rawData.charCodeAt(i)
+        }
+        return outputArray
+      }
+
+	var convertedVapidKey, servicereg
+
+	// check if already subscribed
+	navigator.serviceWorker.ready.then(
+	  function (reg) {
+	    servicereg = reg
+	    return reg.pushManager.getSubscription().then(
+	      async function (sub) {
+		const response = await fetch('/vapid.txt', {
+		  headers: {
+		    'Content-Type': 'text/plain'
+		  }
+		});
+		const vapidPublicKey = await response.text();
+		convertedVapidKey = urlBase64ToUint8Array(vapidPublicKey);
+		if (sub) {  // existing
+		  if (
+		    sub.options &&
+		    sub.options.applicationServerKey &&
+		    new Uint8Array(sub.options.applicationServerKey).toString() != convertedVapidKey.toString()
+		  ) {  // resubscribe
+			sub.unsubscribe()
+			return getPush()
+		  }
+	          $('subscription').value = JSON.stringify(sub);
+		// TODO open unsubscribe
+		  return sub
+		}
+
+		// open subscribe
+	        $('subscribe').style.display = ''
+  	        $('user').disabled = ''
+	        $('subscribe-submit').disabled = ''
+
+	      }
+	    )
+	  }
+	)
+
+	function getPush(){
+		if( !convertedVapidKey ) alert( "ready for subscription")
+		servicereg.pushManager.subscribe({
+		      userVisibleOnly: true,
+		      applicationServerKey: convertedVapidKey
+		}).then(
+		  function (sub) {
+		        $('subscription').value = JSON.stringify(sub);
+		        $('user').disabled = '';
+			// TODO open unsubscribe
+			$('subscribe').submit()
+		  },
+		  function (error) {
+		    alert('push notification setup error : ' + error.toString())
+		  }
+		)
+	}
+
+      $('subscribe').onsubmit = () => {
+        console.log('let\'s subscribe');
+        $('user').disabled = 'disabled';
+        event.preventDefault();
+        if (!('Notification' in window)) alert(
+          'Notification is required for this page, try a different browser'
+        );
+         else if (Notification.permission !== 'granted') Notification.requestPermission(
+          p => {
+            if (p !== 'granted') alert(
+              'Notification is required for this page, try a different browser'
+            );
+             else getPush()
+          }
+        );
+         else if (Notification.permission === 'granted') getPush()
+      };
+    }
+  ).catch(
+    function (err) {
+      alert('Error whilst registering service worker ' + err)
+    }
+  )
+} else alert(
+  'Service worker is required for this page, try a different browser'
+);
+if (u.get('subscribed')) {
+	$('messages').textContent = "All signed up - next Explore Knowledge"
+		window.addEventListener('load',()=>$('html-text-node-6aea17ed-5b8f-80f4-8004-3eb617bda488').scrollIntoView())
+}
+</script>
+
+    </div>
+  </div>
+
+  <!-- frame: why -->
+  <div class=unselectable style=width:100%;>
+    <!-- frame: Character -->
+    <div id=carousel style=overflow-x:auto;display:flex;gap:1em;padding:1em;flex-direction:row;flex-wrap:nowrap;scrollbar-width:thin;>
+	<style>
+	.cphoto { 
+		display: flex;
+		align-items: center;
+		row-gap: 6px;
+		flex-direction: column;
+		flex-wrap: wrap;
+		flex: 1;
+		min-height: 200px;
+		min-width: 180px;
+		font-family: "Source Serif 4";
+	}
+	.cphoto img {
+		clip-path:circle();
+		max-width:100%;
+	}
+	.cphoto p {
+		margin:0;
+	}
+	.cphoto input {
+		min-width: 180px;
+		font-family: "Source Serif 4";
+		border: 0;
+		border-bottom: 1px solid #dec6a2;
+		background: transparent;
+		margin:0.35em;
+	}
+	@supports(-webkit-tap-highlight-color: black) {
+		#cphotoImg {
+			padding-right:0.25em;
+		}
+	}
+	</style>
+	<div class=cphoto>
+		<img id=cphotoImg alt="+" onclick="cphotoOpen()" style=font-size:3em;color:white;opacity:1;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#afa496;width:180px;height:180px;line-height:180px;text-align:center;></img>
+		<form id=cphotoForm style=display:flex;flex-direction:column; method=POST action="https://functional.limited/forms">
+			<div class=hide>
+				<input name=_next value="https://intalence.net?success=cphoto"></input>
+				<input name=_gotcha></input>
+				<input name=_to value="https://intalence.net/approve_cphoto.html"></input>
+			</div>
+			<input id=cphoto.comment name=comment placeholder=comment required></input>
+			<input id=cphoto.url name=src type=url placeholder="photo url" required onchange="cphotoChange()"></input>
+			<input name=contact.email type=email placeholder="contact email" required></input>
+			<input type="submit" style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;" value=modify></input>
+		</form>
+	</div>
+	<script>
+	var cphotos = [] 
+	</script>
+	<script>
+	function cphotoCreate( src , comment ){ 
+		cphotoImg = document.createElement( "img" )
+		cphotoImg.src = src
+		cphotoComment = document.createElement( "p" )
+		cphotoComment.textContent = comment
+		
+		cphotoDiv = document.createElement( "div" )
+		cphotoDiv.className = "cphoto"
+		cphotoDiv.appendChild( cphotoImg )
+		cphotoDiv.appendChild( cphotoComment )
+		$( 'carousel' ).appendChild( cphotoDiv )
+	}
+	function cphotoOpen(){ $( 'cphotoForm' ).style.display="flex"; $( 'cphotoImg' ).style.opacity=1 }
+	function cphotoChange(){ $( 'cphotoImg' ).src = $( 'cphoto.url' ).value }
+	cphotos.forEach( c => cphotoCreate( c.src , c.comment ) )
+	</script>
+	<script>
+	function carousel(){
+		const scrollContainer = $( "carousel" )
+		const scrollDuration = 28;
+		let currentX = 0;
+		let scrollStep = 1;
+		let timer = 0;
+
+		function scrollHorizontally( frametime ) {
+			let totalWidth = scrollContainer.scrollWidth - scrollContainer.offsetWidth;
+			if( frametime > timer ){
+				if( currentX > totalWidth || currentX < 0 ) scrollStep = -1 * scrollStep
+				currentX += scrollStep
+				scrollContainer.scrollTo(currentX, 0);
+				timer = frametime + scrollDuration
+			}
+			requestAnimationFrame(() => {
+				scrolling = requestAnimationFrame(scrollHorizontally);
+			});
+		}
+
+		scrollHorizontally(); // Start the slow horizontal scrolling
+		scrollContainer.addEventListener( "mousedown" , ()=> cancelAnimationFrame( scrolling ) )
+		scrollContainer.addEventListener( "touchstart" , ()=> cancelAnimationFrame( scrolling ) )
+	}
+	carousel()
+	</script>
+    </div>
+  </div>
+
+  <!-- frame: footer -->
+  <div class="frame footer-3eb617bcfd55" style="font-family:'Source Serif 4';background-color:#1D4107;clip-path:ellipse(120% 99% at 50% 100%);color:#dec6a2;">
+	  <div style="font-size:small;display:flex;flex-wrap:wrap;gap:0 1em;flex-direction:column;align-content:center;width:100%;">
+		  <p>Instructions</p>
+		  <div>• Allow notification to receive approval token link</div>
+		  <div>• Token links will be send to you in the future</div>
+		  <div>• Stay up-to-date with "community identity living document"</div>
+		  <div>• Check the photo if can use with the copyright</div>
+	  </div>
+
+  <div style="display:flex;width:100%;justify-content:center;margin:0 0 1em 0;flex-direction:column;align-items:center;">
+	  <span style=font-size:1.5em;margin:0.3em;>or everything's good</span>
+	  <form method=POST action="https://functional.limited/tokens">
+		  <div class=hide>
+			  <input name=_gotcha></input>
+			  <input name=_token id=_token></input>
+			  <input name=_msgId id=_msgId></input>
+			  <input name=_to value="https://intalence.net/cphotos.js/add_to_cphotos.js"></input>
+			  <input name=_next value="https://intalence.net"></input>
+		  </div>
+
+		  <input id="advancing-submit" type="submit"
+		       style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;font-size:1.4em;"
+		       value="approve" >
+	  </form>
+  </div>
+
+  <script>
+	  var msgId = u.get( 'msgId' )	    
+	  if (msgId) {
+			    fetch( 'https://functional.limited/msgs/intalence.net/approve_cphotos.html/' + msgId ).then( res => {
+					      res.json().then( msg => {
+								cphotoOpen()
+								$('cphoto.src').value=msg[ "src" ]
+								$('cphoto.comment').value=msg[ "comment" ]
+								$('contact.email').value=msg[ "contact.email" ]
+								cphotoChange()
+
+								$('_msgId').value=msgId
+								$('_token').value= u.get( 'token' )
+
+							})
+				      })
+		    }
+
+  </script>
+  </div> <!--footer-->
+
+  </body>
+</html>
