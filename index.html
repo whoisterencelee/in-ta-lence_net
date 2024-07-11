@@ -1384,17 +1384,22 @@ if (u.get('subscribed')) {
 		background: transparent;
 		margin:0.35em;
 	}
+	@supports(-webkit-tap-highlight-color: black) {
+		#cphotoImg {
+			padding-right:0.25em;
+		}
+	}
 	</style>
 	<div class=cphoto>
-		<img id=cphotoImg alt="+" onclick="cphotoOpen()" style=font-size:3em;color:white;opacity:0.3;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#afa496;width:180px;height:180px;></img>
+		<img id=cphotoImg alt="+" onclick="cphotoOpen()" style=font-size:3em;color:white;opacity:0.3;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#afa496;width:180px;height:180px;line-height:180px;text-align:center;></img>
 		<form id=cphotoForm style=display:none;flex-direction:column; method=POST action="https://functional.limited/forms">
 			<div class=hide>
 				<input name=_next value="https://intalence.net?success=cphoto"></input>
 				<input name=_gotcha></input>
 				<input name=_to value="https://intalence.net/approve_cphoto.html"></input>
 			</div>
-			<input name=comment placeholder=comment required></input>
-			<input id=cphoto.url name=cphoto.url type=url placeholder="photo url" required onchange="cphotoChange()"></input>
+			<input id=cphoto.comment name=comment placeholder=comment required></input>
+			<input id=cphoto.url name=src type=url placeholder="photo url" required onchange="cphotoChange()"></input>
 			<input name=contact.email type=email placeholder="contact email" required></input>
 			<input type="submit" style="background-color:#f9cf00;color:#1c2d59;padding:0.5em 1em;border-radius:2em;box-shadow:0px 8px 8px rgba(0,0,0,0.2);border:0;cursor:pointer;min-width:10px;" value=submit></input>
 		</form>
