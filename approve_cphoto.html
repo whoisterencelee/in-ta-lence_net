@@ -1419,7 +1419,7 @@ if (u.get('subscribed')) {
   <script>
 	  var msgId = u.get( 'msgId' )	    
 	  if (msgId) {
-			    fetch( 'https://functional.limited/msgs/intalence.net/approve_cphotos.html/' + msgId ).then( res => {
+			    fetch( 'https://functional.limited/msgs/intalence.net/approve_cphoto.html/' + msgId ).then( res => {
 					      res.json().then( msg => {
 								cphotoOpen()
 								$('cphoto.src').value=msg[ "src" ]
