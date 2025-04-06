@@ -15,6 +15,8 @@ var knowledge = {
 		{ id : "language" , group : 2 } ,
 		{ id : "english" , group : 2 } ,
 		{ id : "music" , group : 1 , details : "https://design.penpot.app/#/view/f336a94c-01dc-8157-8004-9b2475b55328?page-id=f336a94c-01dc-8157-8004-9b2475b55329&section=interactions&index=0&share-id=f336a94c-01dc-8157-8004-9b24f0aad2d5" } ,
+		{ id : "urban geography" , group 2 } ,
+		{ id : "transnational social issues" , group 2 } ,
 		/* add nodes here */
 	] ,
 	links : [
@@ -32,6 +34,8 @@ var knowledge = {
 		{ source : "culture" , target : "language" , value : 1 } ,
 		{ source : "language" , target : "english" , value : 1 } ,
 		{ source : "art" , target : "music" , value : 1 } ,
+		{ source : "urban geography" , target : "culture" , value : 1 } ,
+		{ source : "transnational social issues" , target : "culture" , value : 1 } ,
 		/* add links here */
 
 	]
